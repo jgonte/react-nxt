@@ -13,13 +13,19 @@ export default class TableBody extends Component {
         const value = row[column.name];
 
         if (column.renderer) {
-          return <td className="mdl-data-table__cell--non-numeric" key={column.name}>{column.renderer(value)}</td>;
+          return (<td className="mdl-data-table__cell--non-numeric" key={column.name}>
+            {column.renderer(value)}
+          </td>);
         }
 
-        return <td className="mdl-data-table__cell--non-numeric" key={column.name}>{value}</td>;
+        return (<td className="mdl-data-table__cell--non-numeric" key={column.name}>
+          {value}
+        </td>);
       });
 
-      return <tr key={row.id}>{cells}</tr>;
+      return (<tr key={row.id}>
+        {cells}
+      </tr>);
     });
   }
 
