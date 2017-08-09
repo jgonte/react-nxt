@@ -1,0 +1,56 @@
+{
+  "name": "react-nxt",
+  "version": "0.1.0",
+  "description": "Components based on ReactJs",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "eslint src",
+    "build": "babel src --out-dir dist",
+    "pretest": "eslint test",
+    "test": "mocha test/.setup.js --compilers js:babel-core/register --colors --name *.spec.js --recursive ./test",
+    "commit": "git add . && git commit -m \"Committed changes\"",
+    "publish": "git push --tags && git push origin master && npm publish",
+    "publish-patch": "npm run commit && npm version patch && npm run publish",
+    "publish-minor": "npm run commit && npm version minor && npm run publish"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-airbnb": "^2.4.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^3.5.0",
+    "enzyme": "^2.9.1",
+    "es6-promise": "^4.1.1",
+    "eslint": "^3.19.0",
+    "graceful-readlink": "^1.0.1",
+    "has-flag": "^2.0.0",
+    "jsdom": "^11.1.0",
+    "mflux": "^0.4.0",
+    "mocha": "^3.4.2",
+    "react": "^15.6.1",
+    "react-addons-test-utils": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "react-mflux": "^0.4.0",
+    "react-router-dom": "^4.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgonte/react-nxt.git"
+  },
+  "keywords": [
+    "javascript",
+    "react",
+    "widgets",
+    "components"
+  ],
+  "author": "Jorge Rivera Gonte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgonte/react-nxt/issues"
+  },
+  "homepage": "https://github.com/jgonte/react-nxt#readme"
+}
