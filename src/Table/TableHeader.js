@@ -1,13 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class TableHeader extends Component {
+export default class TableHeader extends React.Component {
 
   shouldComponentUpdate(newProps, newState) {
     return false;
   }
 
   generateColumns() {
-    return this.props.columns.map(column =>
+
+    const { columns } = this.props;
+
+    return columns.map(column =>
       <th className="mdl-data-table__cell--non-numeric mdl-data-table__header--sorted-descending" key={column.name}>
         {column.label}
       </th>);

@@ -16,6 +16,14 @@ export default class AsyncLoadingTable extends AsyncLoadingStoreHolderComponent 
 
     render() {
 
+        let {
+            columns
+        } = this.props;
+
+        console.log('columns');
+
+        console.log(columns);
+
         const {
             loading,
             data,
@@ -23,23 +31,30 @@ export default class AsyncLoadingTable extends AsyncLoadingStoreHolderComponent 
         } = this.store.state;
 
         if (loading) {
+
             return (<div>loading ...</div>);
+
         } else if (data) {
 
-            let {
-                columns
-            } = this.props;
-
             if (!columns) {
+
+                console.log('building columns');
+
                 columns = this.buildColumns(data);
             }
 
-            return (<Table>
+            return (<Table
                 columns={columns}
                 data={data.payload}
-            </Table>);
+            />);
+
+        } else if (error) {
+
+            return (<div>error: {error}</div>);
         }
-        return (<div>error: {error}</div>);     
+        
+        // Not loaded yet 
+        return (<div>not loaded</div>);
     }
 
     buildColumns(data) {

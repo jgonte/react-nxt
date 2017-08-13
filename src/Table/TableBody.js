@@ -1,12 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class TableBody extends Component {
+export default class TableBody extends React.Component {
 
   generateRows() {
 
-    const columns = this.props.columns;
+    const { 
+      columns,
+      data
+     } = this.props;
 
-    return this.props.data.map(row => {
+    return data.map(row => {
 
       const cells = columns.map(column => {
 
